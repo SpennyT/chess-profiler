@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display:900" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Chess Profiler</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="heading-text">
+        <h1>The Chess Profiler</h1>
+      </div>
+
+      <form action="#">
+        <label for="search-input">Search by chess.com username</label>
+
+        <div class="search-bar">
+          <input type="text" placeholder="e.g. SpennyThompson" id="search-input">
+          <input type="submit" value="Search">
+        </div>
+      </form>
+    </header>
+    
+    <div class="full-profile">
+        <div class="left-box">
+            <section class="profile-results">
+                <!-- Profile info here (username, pic, date joined, last online)  -->
+            </section>
+            
+            <section class="country-results">
+                <!-- Country separate section as it's from an API within an API  -->
+            </section>
+        </div>  
+
+        <section class="stats-results">
+            <!-- Game result breakdown -->
+        </section>
+    </div>
+
+    <div class="games-results">
+
+
+    </div>
+
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
