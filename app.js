@@ -24,8 +24,7 @@ app.getProfileData = function(username) {
         $('.profile-results').empty();
         // Note the country data is an API within the original API so we use result here to find the nested API
         app.getCountryData(result);
-        // Call profile display function
-        app.displayProfileData(result);
+        
         
         });
 };
@@ -38,7 +37,9 @@ app.getCountryData = function(object) {
         }).then(result => {
         $('.country-results').empty();
         app.displayCountryData(result);
+            // Call profile display function
         
+        app.displayProfileData(object);
         });
 };
 
@@ -60,7 +61,7 @@ app.getStatsData = function(username) {
 
 app.getGamesData = function(username) {
     $.ajax({
-        url: `https://api.chess.com/pub/player/${username}/games/2021/04`,
+        url: `https://api.chess.com/pub/player/${username}/games/2021/05`,
         method: "GET",
         dataType: "json",
 
@@ -132,10 +133,19 @@ app.displayCountryData = function(result) {
 
 app.displayGamesData = function(result, username) {
         // Find total wins, losses and draws through either indludes or does not include
+        
         const totalGames = result.games.filter(e => e.pgn);
-        const wonGames = result.games.filter(e => e.pgn.includes(`${username} won`));
-        const drawnGames = result.games.filter(e => e.pgn.includes("drawn"));
-        const lostOrDrawnGames = result.games.filter(e => !e.pgn.includes(`${username} won`));
+        // console.log(totalGames);
+        // console.log(username);
+        const wonGames = totalGames.filter((e) => {
+            
+           return e.pgn.includes(`${username} won`) 
+           
+        });
+
+        // console.log(wonGames);
+        const drawnGames = totalGames.filter(e => e.pgn.includes("drawn"));
+        const lostOrDrawnGames = totalGames.filter(e => !e.pgn.includes(`${username} won`));
 
         // Within wins and losses, find HOW the game was won/lost
         const meResign = lostOrDrawnGames.filter(e => e.pgn.includes("resignation"));
