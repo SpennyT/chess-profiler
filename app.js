@@ -61,11 +61,7 @@ app.getStatsData = function(username) {
 
 app.getGamesData = function(username) {
     $.ajax({
-<<<<<<< HEAD
-        url: `https://api.chess.com/pub/player/${username}/games/2021/05`,
-=======
         url: `https://api.chess.com/pub/player/${username}/games/2021/06`,
->>>>>>> main
         method: "GET",
         dataType: "json",
 
