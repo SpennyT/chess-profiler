@@ -61,7 +61,11 @@ app.getStatsData = function(username) {
 
 app.getGamesData = function(username) {
     $.ajax({
+<<<<<<< HEAD
         url: `https://api.chess.com/pub/player/${username}/games/2021/05`,
+=======
+        url: `https://api.chess.com/pub/player/${username}/games/2021/06`,
+>>>>>>> main
         method: "GET",
         dataType: "json",
 
@@ -174,25 +178,27 @@ app.displayGamesData = function(result, username) {
 
     const gamesHtml = `<h2>Recent Chess</h2>
     
-    <div class ="win-results">
-    <h3>Win percentage ${winPercentage}%</h3>
-    <p>Checkmate: ${meCheckmatePercentage}%</p>
-    <p>Resignation: ${opponentResignPercentage}%</p>
-    <p>Timeout: ${opponentFlagPercentage}%</p>
-    <p>Abandoned: ${opponentAbandonPercentage}%</p>
-</div>
+    <div class="allResults">
+        <div class ="win-results">
+            <h3>Win percentage ${winPercentage}%</h3>
+            <p>Checkmate: ${meCheckmatePercentage}%</p>
+            <p>Resignation: ${opponentResignPercentage}%</p>
+            <p>Timeout: ${opponentFlagPercentage}%</p>
+            <p>Abandoned: ${opponentAbandonPercentage}%</p>
+        </div>
 
-<div class ="loss-results">
-    <h3>Loss percentage ${lossPercentage}%</h3>
-    <p>Checkmate: ${opponentCheckmatePercentage}%</p>
-    <p>Resignation: ${meResignPercentage}%</p>
-    <p>Timeout: ${meFlagPercentage}%</p>
-    <p>Abandoned: ${meAbandonPercentage}%</p>
-</div>
+        <div class ="loss-results">
+            <h3>Loss percentage ${lossPercentage}%</h3>
+            <p>Checkmate: ${opponentCheckmatePercentage}%</p>
+            <p>Resignation: ${meResignPercentage}%</p>
+            <p>Timeout: ${meFlagPercentage}%</p>
+            <p>Abandoned: ${meAbandonPercentage}%</p>
+        </div>
 
-<div class ="draw-results">
-    <h3>Draw percentage ${drawPercentage}%</h3>
-</div>
+        <div class ="draw-results">
+            <h3>Draw percentage ${drawPercentage}%</h3>
+        </div>
+    </div>
 `
     
    $('.games-results').append(gamesHtml);
